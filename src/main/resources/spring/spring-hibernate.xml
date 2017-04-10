@@ -11,20 +11,20 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <context:annotation-config/>
     <bean id="propertyPlaceholderConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-               <value>classpath:properties/jdbc.properties</value>
-               <value>classpath:properties/hibernate.properties</value>
+                <value>classpath:properties/jdbc.properties</value>
+                <value>classpath:properties/hibernate.properties</value>
             </list>
         </property>
     </bean>
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-     <property name="driverClass" value="${jdbc.driver}"/>
-     <property name="jdbcUrl" value="${jdbc.url}"/>
-     <property name="user" value="${jdbc.user}"/>
-     <property name="password" value="${jdbc.password}"/>
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
         <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
         <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
         <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
@@ -35,4 +35,45 @@
         <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
         <property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
     </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+          scope="singleton">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+                <prop key="hibernate.max_fetch_depth">${hibernate.max_fetch_depth}</prop>
+                <prop key="hibernate.default_batch_fetch_size">${hibernate.default_batch_fetch_size}</prop>
+                <prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+                <!--<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>-->
+                <!--<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>-->
+            </props>
+        </property>
+        <!--spring加载时修改表结构-->
+        <property name="schemaUpdate" value="true"/>
+        <!--表名和字段名命名策略-->
+        <property name="namingStrategy">
+            <bean class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+        </property>
+        <!--扫描的包-->
+        <property name="packagesToScan" value="com.sunny.model"/>
+    </bean>
+     <bean id="transactionManager"  class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+         <property name="sessionFactory" ref="sessionFactory"/>
+         <!--允许嵌套事务-->
+         <property name="nestedTransactionAllowed" value="true"/>
+     </bean>
+    <bean id="jdbcExceptionTranslator" class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="jdbcExceptionTranslator" ref="jdbcExceptionTranslator"/>
+    </bean>
+
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
 </beans>
