@@ -11,7 +11,7 @@
     </listener>
     <context-param>
         <param-name>log4jConfigLocation</param-name>
-        <param-value>classpath:properties/log4.properties</param-value>
+        <param-value>WEB-INF/log4j.properties</param-value>
     </context-param>
 
     <!--context启动时加载spring 配置-->

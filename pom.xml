@@ -111,7 +111,7 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8080</port>
-                    <path>/Sunny</path>
+                    <path>/</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <finalName>Sunny</finalName>
                     <server>tomcat7</server>

@@ -23,7 +23,7 @@ public class Run {
         //加载引擎
         Class.forName("com.mysql.jdbc.Driver");
         //创建连接 :3306 后面 一定要用单个 /
-        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny","root","");
+        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny","root","123456");
         /**
          * 创建Statement
          * Statement:执行静态的Sql语句
