@@ -5,20 +5,15 @@
          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Sunny</display-name>
 
-    <!-- 配置log4j.xml监听器 -->
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>WEB-INF/log4j.properties</param-value>
-    </context-param>
-
-    <!--context启动时加载spring 配置-->
+    <!--spring 参数 配置-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/*.xml</param-value>
     </context-param>
+   <!-- 加载context信息-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <!--设置dispatcher servlet 分发器-->
     <servlet>
         <servlet-name>action</servlet-name>

@@ -1,7 +1,12 @@
 package com.sunny.web.dao;
 
 import org.hibernate.SQLQuery;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,7 +17,12 @@ import java.util.List;
  * Time: 下午11:11
  * To change this template use File | Settings | File Templates.
  */
+@Transactional(propagation = Propagation.REQUIRED)
 public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao {
+    @Autowired
+    public void setSessionFactory0(SessionFactory sessionFactory) {
+        super.setSessionFactory(sessionFactory);
+    }
     @Override
     public <T> List<T> findBySql(Class<T> type, String sql, Object... values) {
         SQLQuery query = getHibernateTemplate().getSessionFactory().getCurrentSession().createSQLQuery(sql);
