@@ -4,16 +4,38 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Sunny</display-name>
-
-    <!--spring 参数 配置-->
+    <!--程序加载顺序 listener->filter->servlet-->
+    <!--参数 配置-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/*.xml</param-value>
     </context-param>
-   <!-- 加载context信息-->
+    <!--Bootstrap the root application context as usual using ContextLoaderListener-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!--encodingFilter start -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <!--encodingFilter end -->
     <!--设置dispatcher servlet 分发器-->
     <servlet>
         <servlet-name>action</servlet-name>
