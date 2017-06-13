@@ -415,7 +415,7 @@
 
     <properties>
         <spring.framework.version>3.0.6.RELEASE</spring.framework.version>
-        <junit.version>4.6</junit.version>
+        <junit.version>4.12</junit.version>
         <apache-log4j.version>1.2.14</apache-log4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <hibernate.version>3.5.1-Final</hibernate.version>

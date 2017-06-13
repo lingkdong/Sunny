@@ -17,14 +17,14 @@ public class Category {
 
     private Date createTime;
 
-    private Date lastUpateTime;
+    private Date lastUpdateTime;
 
-    public Date getLastUpateTime() {
-        return lastUpateTime;
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
     }
 
-    public void setLastUpateTime(Date lastUpateTime) {
-        this.lastUpateTime = lastUpateTime;
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 
     public Long getId() {
