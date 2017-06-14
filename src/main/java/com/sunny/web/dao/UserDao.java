@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
  * Created by DT254 on 2017/4/13.
  */
 public interface UserDao {
-    User getUserByName(String username);
+    User findUserByName(String username);
+    User findUserByEmail(String email);
 }
