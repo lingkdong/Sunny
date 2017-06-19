@@ -215,7 +215,7 @@
         <dependency>
             <groupId>com.googlecode.genericdao</groupId>
             <artifactId>dao-hibernate</artifactId>
-            <version>1.2.0</version>
+            <version>1.2.1</version>
         </dependency>
         <!--web start-->
         <dependency>
@@ -278,12 +278,6 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 
@@ -419,15 +413,14 @@
     <!--dependency end-->
 
     <properties>
-        <spring.framework.version>3.0.6.RELEASE</spring.framework.version>
+        <spring.framework.version>4.3.9.RELEASE</spring.framework.version>
         <junit.version>4.12</junit.version>
         <apache-log4j.version>1.2.14</apache-log4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
-        <hibernate.version>3.5.1-Final</hibernate.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <mysql.version>5.1.16</mysql.version>
         <gson.version>2.2.4</gson.version>
-        <hessian.version>3.2.1</hessian.version>
         <servlet-api.version>2.5</servlet-api.version>
         <jsp-api.version>2.0</jsp-api.version>
         <jstl.version>1.2</jstl.version>

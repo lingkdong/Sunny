@@ -32,7 +32,7 @@
         <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
         <property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
     </bean>
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
           scope="singleton">
         <property name="dataSource" ref="dataSource"/>
         <property name="hibernateProperties">
@@ -49,8 +49,6 @@
                 <!--<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>-->
             </props>
         </property>
-        <!--spring加载时修改表结构-->
-        <property name="schemaUpdate" value="true"/>
         <!--表名和字段名命名策略-->
         <property name="namingStrategy">
             <bean class="org.hibernate.cfg.ImprovedNamingStrategy"/>
@@ -58,17 +56,13 @@
         <!--扫描的包-->
         <property name="packagesToScan" value="com.sunny.web.model"/>
     </bean>
-     <bean id="transactionManager"  class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+     <bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
          <property name="sessionFactory" ref="sessionFactory"/>
          <!--允许嵌套事务-->
          <property name="nestedTransactionAllowed" value="true"/>
      </bean>
     <bean id="jdbcExceptionTranslator" class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
         <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-        <property name="jdbcExceptionTranslator" ref="jdbcExceptionTranslator"/>
     </bean>
     <!--事务-->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>

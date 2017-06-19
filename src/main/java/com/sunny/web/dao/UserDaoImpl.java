@@ -2,7 +2,6 @@ package com.sunny.web.dao;
 
 import com.googlecode.genericdao.search.Search;
 import com.sunny.web.model.User;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

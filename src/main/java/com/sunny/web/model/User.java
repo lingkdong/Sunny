@@ -32,6 +32,8 @@ public class User {
     private Date createTime;
     private Date lastUpdateTime;
 
+    @Column(name="picture",length = 200,nullable=false)
+    private String picture;
 
     public Long getId() {
         return id;
@@ -105,5 +107,11 @@ public class User {
         this.lastUpdateTime = lastUpdateTime;
     }
 
+    public String getPicture() {
+        return picture;
+    }
 
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 }
