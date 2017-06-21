@@ -35,6 +35,7 @@ public class User {
     @Column(name="picture",length = 200,nullable=false)
     private String picture;
 
+    private Boolean isEnabled;
     public Long getId() {
         return id;
     }
@@ -113,5 +114,13 @@ public class User {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public Boolean getEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        isEnabled = enabled;
     }
 }

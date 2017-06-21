@@ -4,7 +4,6 @@ import com.googlecode.genericdao.search.Search;
 import com.sunny.web.model.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 /**
  * Created by DT254 on 2017/4/13.

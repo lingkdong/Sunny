@@ -7,4 +7,8 @@ import com.sunny.web.model.User;
  */
 public interface UserService {
     User findUserByName(String username);
+
+    User findUserByEmail(String email);
+
+
 }
