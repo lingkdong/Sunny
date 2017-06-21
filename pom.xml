@@ -274,12 +274,12 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${spring.framework.version}</version>
+            <version>${spring.security.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${spring.framework.version}</version>
+            <version>${spring.security.version}</version>
         </dependency>
         <!--spring security-->
         <!--spring test start-->
@@ -431,6 +431,7 @@
 
     <properties>
         <spring.framework.version>4.3.9.RELEASE</spring.framework.version>
+        <spring.security.version>4.2.3.RELEASE</spring.security.version>
         <junit.version>4.12</junit.version>
         <apache-log4j.version>1.2.14</apache-log4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
