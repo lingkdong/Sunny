@@ -3,7 +3,7 @@ package com.sunny.web.model;
 import javax.persistence.*;
 
 /**
- * Created by DT254 on 2017/6/21.
+ * user_role
  */
 @Entity
 public class Role {

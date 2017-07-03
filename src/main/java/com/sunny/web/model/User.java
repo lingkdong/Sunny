@@ -35,7 +35,8 @@ public class User {
     @Column(name="picture",length = 200,nullable=false)
     private String picture;
 
-    private Boolean isEnabled;
+    @Column(name="email",length =3,unique = true,nullable = false)
+    private String status;//000 未认证，001 正常 ，002 锁定
     public Long getId() {
         return id;
     }
@@ -116,11 +117,11 @@ public class User {
         this.picture = picture;
     }
 
-    public Boolean getEnabled() {
-        return isEnabled;
+    public String getStatus() {
+        return status;
     }
 
-    public void setEnabled(Boolean enabled) {
-        isEnabled = enabled;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

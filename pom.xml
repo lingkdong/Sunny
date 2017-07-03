@@ -265,23 +265,6 @@
             <scope>compile</scope>
         </dependency>
         <!--core container end-->
-        <!--spring security-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>4.2.3.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <!--spring security-->
         <!--spring test start-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -343,7 +326,11 @@
             <version>${gson.version}</version>
         </dependency>
         <!-- json end -->
-
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>17.0</version>
+        </dependency>
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -425,13 +412,11 @@
             <version>1.5</version>
         </dependency>
         <!--md5 base64-->
-
     </dependencies>
     <!--dependency end-->
 
     <properties>
         <spring.framework.version>4.3.9.RELEASE</spring.framework.version>
-        <spring.security.version>4.2.3.RELEASE</spring.security.version>
         <junit.version>4.12</junit.version>
         <apache-log4j.version>1.2.14</apache-log4j.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>

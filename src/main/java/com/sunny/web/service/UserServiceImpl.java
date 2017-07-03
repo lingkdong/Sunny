@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
-
     @Override
     public User findUserByName(String username) {
         return userDao.findUserByName(username);
