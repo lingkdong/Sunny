@@ -35,7 +35,7 @@ public class User {
     @Column(name="picture",length = 200,nullable=false)
     private String picture;
 
-    @Column(name="email",length =3,unique = true,nullable = false)
+    @Column(name="status",length =3,unique = true,nullable = false)
     private String status;//000 未认证，001 正常 ，002 锁定
     public Long getId() {
         return id;
