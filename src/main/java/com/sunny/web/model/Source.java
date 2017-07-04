@@ -30,7 +30,9 @@ public class Source {
 
     private Date lastUpdateTime;
 
+    private String link;
 
+    private Long mark;
     public Date getLastUpdateTime() {
         return lastUpdateTime;
     }
@@ -101,5 +103,21 @@ public class Source {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public Long getMark() {
+        return mark;
+    }
+
+    public void setMark(Long mark) {
+        this.mark = mark;
     }
 }
