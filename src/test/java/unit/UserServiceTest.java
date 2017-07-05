@@ -20,4 +20,16 @@ public class UserServiceTest extends AbstractTest {
         User user=userService.findUserByName("mine");
         System.out.println(ToStringBuilder.reflectionToString(user, ToStringStyle.SHORT_PREFIX_STYLE));
     }
+
+    public void testASII(){
+        char c ='–';
+        char a ='－';
+        char d ='-';
+        char e ='-';
+
+        System.out.println((int)c);
+        System.out.println((int)a);
+        System.out.println((int)d);
+        System.out.println((int)e);
+    }
 }
