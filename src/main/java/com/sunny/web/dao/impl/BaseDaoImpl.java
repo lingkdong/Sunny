@@ -1,6 +1,7 @@
-package com.sunny.web.dao;
+package com.sunny.web.dao.impl;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
+import com.sunny.web.dao.BaseDao;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class BaseDaoImpl<T, ID extends Serializable> extends GenericDAOImpl<T,ID>  implements BaseDao{
+public class BaseDaoImpl<T, ID extends Serializable> extends GenericDAOImpl<T,ID>  implements BaseDao {
     @Resource
     @Override
     public void setSessionFactory(SessionFactory sessionFactory) {

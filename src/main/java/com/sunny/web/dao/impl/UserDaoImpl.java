@@ -1,6 +1,8 @@
-package com.sunny.web.dao;
+package com.sunny.web.dao.impl;
 
 import com.googlecode.genericdao.search.Search;
+import com.sunny.web.dao.UserDao;
+import com.sunny.web.dao.impl.BaseDaoImpl;
 import com.sunny.web.model.User;
 import org.springframework.stereotype.Repository;
 
